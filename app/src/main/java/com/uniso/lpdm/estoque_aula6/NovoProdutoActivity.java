@@ -7,25 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-public class NovoProdutoActivity extends AppCompatActivity {
+import com.uniso.lpdm.estoque_aula6.model.Produto;
 
-    String id;
-    String nome;
-    String qtd;
+public class NovoProdutoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_novo_produto);
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle savedInstanceState) {
-        savedInstanceState.putString("produto_id", id);
-        savedInstanceState.putString("produto_nome", nome);
-        savedInstanceState.putString("produto_qtd", qtd);
-
-        super.onSaveInstanceState(savedInstanceState);
     }
 
     public void onClickSalvar(View view){
@@ -36,15 +25,18 @@ public class NovoProdutoActivity extends AppCompatActivity {
         EditText editTextNome = (EditText) findViewById(R.id.edtProdutoNovo);
         EditText editTextQtd = (EditText) findViewById(R.id.edtQtdNovo);
 
-        id = editTextId.getText().toString();
-        nome = editTextNome.getText().toString();
-        qtd = editTextQtd.getText().toString();
+        int id = Integer.parseInt(editTextId.getText().toString());
+        String nome = editTextNome.getText().toString();
+        int qtd = Integer.parseInt(editTextQtd.getText().toString());
 
-        String produtoInfo = id + ";" + nome + ";" + qtd;
+        Produto produto = new Produto();
+        produto.setId(id);
+        produto.setNome(nome);
+        produto.setQuantidade(qtd);
 
         Intent intent = new Intent(this, ExibirPodutoActivity.class);
 
-        intent.putExtra(ExibirPodutoActivity.EXTRA_PRODUTO, produtoInfo);
+        intent.putExtra("Produto", produto);
 
         startActivity(intent);
     }

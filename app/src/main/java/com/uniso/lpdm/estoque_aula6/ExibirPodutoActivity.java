@@ -6,9 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.uniso.lpdm.estoque_aula6.model.Produto;
+
 public class ExibirPodutoActivity extends AppCompatActivity {
 
-    public static final String EXTRA_PRODUTO= "";
+    public static final Produto EXTRA_PRODUTO = new Produto();
 
     //No metodo onCreate estou recebendo o EXTRA_PRODUTO do intent e passando ele para os campos TextView
     @Override
@@ -16,13 +18,11 @@ public class ExibirPodutoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exibir_poduto);
 
-        Intent intentReceiver = getIntent();
+        Produto produto = (Produto) getIntent().getSerializableExtra("Produto");
 
-        String[] produtoInfo =  intentReceiver.getStringExtra(EXTRA_PRODUTO).split(";");
-
-        String id = produtoInfo[0];
-        String nome = produtoInfo[1];
-        String qtd = produtoInfo[2];
+        String id = String.valueOf(produto.getId());
+        String nome = produto.getNome();
+        String qtd = String.valueOf(produto.getQuantidade());
 
         TextView txtProduto = (TextView) findViewById(R.id.txtId);
         TextView txtNome = (TextView) findViewById(R.id.txtNome);
@@ -32,4 +32,5 @@ public class ExibirPodutoActivity extends AppCompatActivity {
         txtNome.setText(nome);
         txtQtd.setText(qtd);
     }
+
 }
