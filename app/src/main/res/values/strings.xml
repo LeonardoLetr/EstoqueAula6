@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Estoque</string>
+    <string name="novo_produto">Novo</string>
+    <string name="atualizar_produto">Atualizar</string>
+    <string name="preencher_email">Enviar e-mail fornecedor</string>
+    <string name="endereco_fornecedor">E-mail fornecedor</string>
+    <string name="hint_endereco_fornecedor">Digite o endereço de email</string>
+    <string name="nome_produto">PRODUTO: </string>
+    <string name="hint_nome_produto">Digite o nome do produto em falta</string>
+    <string name="qtd_produto">QUANTIDADE: </string>
+    <string name="hint_quantidade">Digite a quantidade</string>
+    <string name="enviar_email">Enviar</string>
+    <string name="btn_salvar">Salvar</string>
+    <string name="hint_produto">ID Produto</string>
+
+    <string name="novoProduto_txtId">ID: </string>
+    <string name="novoProduto_txtNome">NOME: </string>
+    <string name="novoProduto_txtQuantidade">QUANTIDADE: </string>
+
+    <string name="exibirProduto_listarProdutos">LISTA DE PRODUTOS</string>
+    <string name="editarProduto_nome">EDITAR DE PRODUTO</string>
+</resources>
